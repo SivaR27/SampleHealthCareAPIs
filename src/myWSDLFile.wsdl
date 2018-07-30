@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/myWSDLFile/" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="myWSDLFile"
+	targetNamespace="http://www.example.org/myWSDLFile/">
+ 
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/myWSDLFile/">
+      <xsd:element name="memberInput">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+        
+      </xsd:element>
+      <xsd:element name="memberOutput">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  
+  <wsdl:message name="memberInput">
+  <wsdl:part element="tns:memberInputData" name="body"/>
+  </wsdl:message>
+  
+  <wsdl:message name="memberOutput">
+    <wsdl:part element="tns:memberOutputData" name="body"/>
+  </wsdl:message>
+  
+  <wsdl:portType name="memberServicePortType">
+    <wsdl:operation name="GetMemberById">
+      <wsdl:input message="tns:memberInput"/>
+      <wsdl:output message="tns:memberOutput"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  
+ <!-- <wsdl:portType name="memberServicePortType">
+    <wsdl:operation name="GetMemberByName">
+      <wsdl:input message="tns:memberInput"/>
+      <wsdl:output message="tns:memberOutput"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  
+  -->
+  
+  <!--  
+  <wsdl:portType name="memberServicePortType">
+    <wsdl:operation name="DeleteMember">
+      <wsdl:input message="tns:memberInput"/>
+      <wsdl:output message="tns:memberOutput"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  -->
+  
+  <!-- <wsdl:portType name="memberServicePortType">
+    <wsdl:operation name="PostMember">
+      <wsdl:input message="tns:memberInput"/>
+      <wsdl:output message="tns:memberOutput"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  -->
+  
+  
+  <!--<wsdl:portType name="memberServicePortType">
+    <wsdl:operation name="PutMember">
+      <wsdl:input message="tns:memberInput"/>
+      <wsdl:output message="tns:memberOutput"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  -->
+  
+  
+  <wsdl:binding name="memberServiceBinding" type="tns:memberServicePortType">
+    <soap:binding style="document" transport="http://127.0.0.1/soap/http"/>
+    <wsdl:operation name="GetMemberById">
+      <soap:operation soapAction="http://127.0.0.1/member/GetMemberById"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  
+  <!--  <wsdl:binding name="memberServiceBinding" type="tns:memberServicePortType">
+    <soap:binding style="document" transport="http://127.0.0.1/soap/http"/>
+    <wsdl:operation name="GetMemberByName">
+      <soap:operation soapAction="http://127.0.0.1/member/GetMemberByName"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  -->
+  
+  
+  
+  <!-- <wsdl:binding name="memberServiceBinding" type="tns:memberServicePortType">
+    <soap:binding style="document" transport="http://127.0.0.1/soap/http"/>
+    <wsdl:operation name="DeleteMember">
+      <soap:operation soapAction="http://127.0.0.1/member/DeleteMember"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  
+  -->
+  
+  <!-- <wsdl:binding name="memberServiceBinding" type="tns:memberServicePortType">
+    <soap:binding style="document" transport="http://127.0.0.1/soap/http"/>
+    <wsdl:operation name="PostMember">
+      <soap:operation soapAction="http://127.0.0.1/member/PostMember"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  
+  -->
+  
+ <!-- <wsdl:binding name="memberServiceBinding" type="tns:memberServicePortType">
+    <soap:binding style="document" transport="http://127.0.0.1/soap/http"/>
+    <wsdl:operation name="PutMember">
+      <soap:operation soapAction="http://127.0.0.1/member/PutMember"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  -->
+  
+  
+  <wsdl:service name="MemberService">
+    <wsdl:port binding="tns:memberServiceBinding" name="memberServicePort">
+      <soap:address location="http://127.0.0.1/member"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

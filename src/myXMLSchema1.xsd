@@ -1,0 +1,71 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"   
+           xmlns:tns="http://localhost/myRest1.xsd"   
+           targetNamespace="http://localhost/myRest1.xsd"   
+           elementFormDefault="qualified"> 
+           
+            
+ <xsd:element name="restRequest"/>  
+ <xsd:complexType name= "request">  
+  <xsd:sequence>
+   <xsd:element name="restHeader" type="xsd:restHeader"/>
+   <xsd:element name="restBody" type="xsd:restBody"/>
+   <xsd:element name="restParams" type="xsd:restParams"/>    
+  </xsd:sequence>  
+ </xsd:complexType>  
+
+ <xsd:element name="restHeader"/>  
+ <xsd:complexType name= "header">  
+  <xsd:sequence>
+   <xsd:element name="contentType" type="xsd:string"/>
+   <xsd:element name="accept" type="xsd:string"/>
+   <xsd:element name="requestType" type="xsd:restrequestType"/>
+   <xsd:element name="baseURL" type="xsd:string"/>
+   <xsd:element name="resourceURL" type="xsd:string"/>
+   <xsd:element name="AuthDetails" type="xsd:string"/>    
+  </xsd:sequence>  
+ </xsd:complexType>   
+
+<!-- 
+<xsd:element name="restrequestType"/>  
+ <xsd:simpleType name= "requestType">
+  <xsd:restriction base="xs:string">  
+    <xsd:enumeration value="GET"/>
+    <xsd:enumeration value="PUT"/>
+    <xsd:enumeration value="POST"/>
+    <xsd:enumeration value="DELETE"/>
+  </xsd:restriction>
+ </xsd:simpleType> 
+ -->
+ 
+ 
+ 
+ <xsd:element name="authDetails"/>  
+ <xsd:complexType name= "authDetails"> 
+   <xsd:element name="userName" type="xsd:string"/>
+   <xsd:element name="password" type="xsd:string"/>
+ </xsd:complexType
+ </xsd:element>
+ 
+  <xsd:element name="restRequestBody"/>  
+ <xsd:complexType name= "restRequestBody">  
+  <xsd:sequence>
+   <xsd:element name="param1" type="xsd:int"/>  
+  </xsd:sequence> 
+ </xsd:complexType> 
+ </xsd:element>  
+ 
+ <xsd:complexType name= "memberInput"> 
+   <xsd:element name="memID" type="xsd:int"/>
+ </xsd:complexType>
+ 
+ 
+ <xsd:complexType name= "memberOutput"> 
+   <xsd:element name="memName" type="xsd:string"/>
+   <xsd:element name="add1" type="xsd:string"/>
+   <xsd:element name="add2" type="xsd:string"/>
+   <xsd:element name="gender" type="xsd:string"/>
+ </xsd:complexType>
+ 
+</xsd:schema>
+     
+
